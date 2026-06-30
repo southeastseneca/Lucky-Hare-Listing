@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,9 +27,8 @@
     "email": "manager@luckyharebrewing.com",
     "address": {"@type":"PostalAddress","streetAddress":"6085 Beckhorn Rd","addressLocality":"Hector","addressRegion":"NY","postalCode":"14841","addressCountry":"US"},
     "openingHoursSpecification": [
-      {"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday"],"opens":"14:00","closes":"20:00"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"12:00","closes":"21:00"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":["Sunday"],"opens":"12:00","closes":"18:00"}
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Sunday","Monday","Tuesday"],"opens":"12:00","closes":"20:00"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday","Saturday"],"opens":"12:00","closes":"21:00"}
     ],
     "servesCuisine":["Craft Beer","Burgers","American"],
     "priceRange":"$$",
@@ -56,12 +56,6 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: var(--font-body); background: var(--cream); color: var(--ink); line-height: 1.7; font-weight: 400; }
 
-    /* ── ICON SYSTEM ─────────────────────────
-       .ses-icon  = amber circle badge (matches brand sheet)
-       .ses-icon-sm  = small (28px) for sidebar / tips
-       .ses-icon-md  = medium (38px) for highlights
-       .ses-icon-lg  = large (48px) for quick bar / features
-    ──────────────────────────────────────── */
     .ses-icon {
       display: inline-flex;
       align-items: center;
@@ -81,7 +75,6 @@
     .ses-icon-lg  { width: 44px; height: 44px; }
     .ses-icon-lg  svg { width: 22px; height: 22px; }
 
-    /* Inverted — amber icon on dark bg (quick bar) */
     .ses-icon-inv {
       display: inline-flex;
       align-items: center;
@@ -93,7 +86,6 @@
     .ses-icon-inv svg circle, .ses-icon-inv svg line,
     .ses-icon-inv svg polyline, .ses-icon-inv svg polygon { stroke: var(--amber) !important; }
 
-    /* ── HERO ─────────────────────────────── */
     .hero {
       position: relative;
       height: 560px;
@@ -126,14 +118,12 @@
     .hero h1 { font-family: var(--font-head); font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 700; color: var(--white); line-height: 1.05; letter-spacing: 0.02em; text-transform: uppercase; }
     .hero-tagline { color: rgba(255,255,255,0.82); font-size: 1rem; font-weight: 300; font-style: italic; margin-top: 0.45rem; }
 
-    /* ── QUICK BAR ────────────────────────── */
     .quick-bar { background: var(--navy); border-top: 3px solid var(--amber); }
     .quick-bar-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; display: flex; flex-wrap: wrap; }
     .quick-item { display: flex; align-items: center; gap: 0.6rem; padding: 0.9rem 1.5rem 0.9rem 0; margin-right: 1.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.9); border-right: 1px solid rgba(255,255,255,0.12); }
     .quick-item:last-child { border-right: none; }
     .quick-item strong { font-weight: 600; color: var(--white); }
 
-    /* ── LAYOUT ───────────────────────────── */
     .main-wrapper { max-width: var(--max-width); margin: 0 auto; padding: 3rem 2rem; display: grid; grid-template-columns: 1fr 320px; gap: 3rem; align-items: start; }
     section { margin-bottom: 2.75rem; }
     .section-label { font-family: var(--font-head); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.4rem; }
@@ -141,7 +131,6 @@
     .section-title { font-family: var(--font-head); font-size: 1.75rem; font-weight: 600; color: var(--navy); margin-bottom: 0.85rem; letter-spacing: 0.02em; text-transform: uppercase; border-bottom: 2px solid var(--amber); padding-bottom: 0.5rem; display: inline-block; }
     p { margin-bottom: 1rem; color: #3a4f54; font-size: 0.95rem; }
 
-    /* ── STORY ────────────────────────────── */
     .story-section { background: var(--navy); border-radius: 8px; padding: 2rem 2.25rem; margin-bottom: 2.75rem; position: relative; overflow: hidden; }
     .story-section::before { content: '\201C'; position: absolute; top: 0.5rem; right: 1.5rem; font-size: 7rem; color: rgba(238,175,112,0.1); line-height: 1; font-family: Georgia, serif; pointer-events: none; }
     .story-label { font-family: var(--font-head); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.6rem; }
@@ -152,32 +141,27 @@
     .story-attribution { margin-top: 1.1rem; padding-top: 0.85rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.82rem; color: var(--amber); font-weight: 500; font-style: normal; display: flex; align-items: center; gap: 0.6rem; }
     .story-placeholder { font-style: italic; color: rgba(255,255,255,0.38); border: 1.5px dashed rgba(238,175,112,0.3); border-radius: 4px; padding: 1.25rem; font-size: 0.9rem; line-height: 1.7; }
 
-    /* ── HIGHLIGHTS ───────────────────────── */
     .highlights { display: grid; grid-template-columns: repeat(auto-fill, minmax(185px, 1fr)); gap: 1rem; margin-top: 0.85rem; }
     .highlight-card { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--amber); padding: 1.1rem 1.15rem; border-radius: 4px; }
     .highlight-card h4 { font-family: var(--font-head); font-size: 0.88rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin: 0.65rem 0 0.3rem; color: var(--navy); }
     .highlight-card p { font-size: 0.82rem; color: var(--muted); margin: 0; }
 
-    /* ── BEER LIST ────────────────────────── */
     .beer-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.75rem; }
     .beer-list li { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--slate); padding: 0.7rem 1rem; border-radius: 3px; font-size: 0.88rem; }
     .beer-list li strong { display: block; color: var(--navy); font-family: var(--font-head); letter-spacing: 0.03em; font-size: 0.92rem; margin-bottom: 0.1rem; }
     .beer-list li span { color: var(--muted); font-size: 0.8rem; }
     .note-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(238,175,112,0.12); border: 1px solid rgba(238,175,112,0.4); color: #7a5a30; font-size: 0.78rem; padding: 0.35rem 0.7rem; border-radius: 3px; margin-top: 0.75rem; }
 
-    /* ── GALLERY ──────────────────────────── */
     .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.75rem; }
     .gallery-item { overflow: hidden; border-radius: 4px; }
     .gallery-item img { width: 100%; height: 165px; object-fit: cover; display: block; transition: transform 0.3s ease; }
     .gallery-item:hover img { transform: scale(1.04); }
     .gallery-note { font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; font-style: italic; display: flex; align-items: center; gap: 0.4rem; }
 
-    /* ── TIPS ─────────────────────────────── */
     .tips-list { list-style: none; margin-top: 0.75rem; }
     .tips-list li { display: flex; gap: 0.75rem; margin-bottom: 0.7rem; font-size: 0.92rem; color: #3a4f54; align-items: flex-start; }
     .tips-list li .ses-icon { margin-top: 0.1rem; }
 
-    /* ── SIDEBAR ──────────────────────────── */
     .sidebar { position: sticky; top: 2rem; }
     .sidebar-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 1.5rem; box-shadow: 0 1px 4px rgba(50,61,65,0.07); }
     .sidebar-card-header { background: var(--navy); color: var(--white); padding: 0.75rem 1.15rem; font-family: var(--font-head); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; display: flex; align-items: center; gap: 0.6rem; }
@@ -206,7 +190,6 @@
     .nearby-item strong { display: block; font-size: 0.88rem; color: var(--navy); font-weight: 600; }
     .nearby-item span { font-size: 0.78rem; color: var(--muted); }
 
-    /* ── EVENTS ───────────────────────────── */
     .events-strip { background: var(--navy); color: var(--white); margin-top: 2rem; }
     .events-inner { max-width: var(--max-width); margin: 0 auto; padding: 2.5rem 2rem; }
     .events-inner .section-label { color: var(--amber); }
@@ -221,12 +204,10 @@
     .events-more { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-top: 1.25rem; display: flex; align-items: center; gap: 0.45rem; }
     .events-more a { color: var(--amber); text-decoration: none; }
 
-    /* ── FOOTER ───────────────────────────── */
     .page-footer { background: #212b2e; color: rgba(255,255,255,0.45); text-align: center; font-size: 0.78rem; padding: 1.5rem 1rem; }
     .page-footer strong { color: rgba(255,255,255,0.8); }
     .page-footer a { color: var(--amber); text-decoration: none; }
 
-    /* ── RESPONSIVE ───────────────────────── */
     @media (max-width: 768px) {
       .main-wrapper { grid-template-columns: 1fr; }
       .sidebar { position: static; }
@@ -240,40 +221,29 @@
     }
   </style>
 
-  <!-- ============================================================
-       INLINE SVG ICON LIBRARY
-       All icons match the SES brand sheet: amber circle + black stroke
-       ============================================================ -->
   <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
     <defs>
 
-      <!-- BREWERY: beer stein with large D-handle and bubbly foam -->
       <symbol id="icon-brewery" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-        <!-- mug body: straight rectangle, clearly not a cup -->
         <rect x="2" y="10" width="13" height="12" rx="1"/>
-        <!-- large D-shaped handle on right -->
         <path d="M15 12 Q21 12 21 16 Q21 20 15 20"/>
-        <!-- foam: 3 overlapping circles sitting on top of rim -->
         <circle cx="5"  cy="10" r="2.2" fill="white" stroke="#1e2729" stroke-width="1.4"/>
         <circle cx="9"  cy="9"  r="2.5" fill="white" stroke="#1e2729" stroke-width="1.4"/>
         <circle cx="13" cy="10" r="2.2" fill="white" stroke="#1e2729" stroke-width="1.4"/>
       </symbol>
 
-      <!-- WINERY: wine glass -->
       <symbol id="icon-winery" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M8 3h8l-1.5 7a4 4 0 0 1-5 0L8 3z"/>
         <line x1="12" y1="14" x2="12" y2="20"/>
         <line x1="8" y1="20" x2="16" y2="20"/>
       </symbol>
 
-      <!-- RESTAURANT: fork and knife -->
       <symbol id="icon-restaurant" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <line x1="8" y1="3" x2="8" y2="21"/>
         <path d="M6 3v6a3 3 0 0 0 4 0V3"/>
         <line x1="16" y1="3" x2="16" y2="21"/>
       </symbol>
 
-      <!-- BAR: martini glass -->
       <symbol id="icon-bar" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M5 4h14l-7 8-7-8z"/>
         <line x1="12" y1="12" x2="12" y2="20"/>
@@ -281,7 +251,6 @@
         <circle cx="17" cy="6" r="1" fill="#1e2729" stroke="none"/>
       </symbol>
 
-      <!-- DISTILLERY: barrel -->
       <symbol id="icon-distillery" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <ellipse cx="12" cy="5" rx="7" ry="2"/>
         <ellipse cx="12" cy="19" rx="7" ry="2"/>
@@ -291,7 +260,6 @@
         <path d="M5 14c2 1.5 12 1.5 14 0"/>
       </symbol>
 
-      <!-- DOG FRIENDLY: dog silhouette -->
       <symbol id="icon-dog" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M10 6c0-1.7 1.3-3 3-3h2l1 2h1a1 1 0 0 1 1 1v2l-2 1v2"/>
         <path d="M16 11c0 3-2 6-5 7H8a2 2 0 0 1-2-2v-2l-1-3 2-1 1 2h2l1-1"/>
@@ -299,14 +267,12 @@
         <path d="M12 14v4"/>
       </symbol>
 
-      <!-- LODGING: house -->
       <symbol id="icon-lodging" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M3 10.5L12 3l9 7.5"/>
         <rect x="6" y="12" width="12" height="9" rx="1"/>
         <path d="M9 21v-6h6v6"/>
       </symbol>
 
-      <!-- COFFEE: steaming cup -->
       <symbol id="icon-coffee" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
         <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
@@ -315,38 +281,32 @@
         <line x1="14" y1="1" x2="14" y2="4"/>
       </symbol>
 
-      <!-- MARKET: basket -->
       <symbol id="icon-market" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M6 2l-3 6h18l-3-6"/>
         <path d="M3 8l2 13h14l2-13"/>
         <path d="M8 8v3a4 4 0 0 0 8 0V8"/>
       </symbol>
 
-      <!-- ACTIVITY: play triangle -->
       <symbol id="icon-activity" viewBox="0 0 24 24" fill="#1e2729" stroke="#1e2729" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
         <polygon points="6,3 20,12 6,21"/>
       </symbol>
 
-      <!-- SHOP: shopping bag -->
       <symbol id="icon-shop" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
         <line x1="3" y1="6" x2="21" y2="6"/>
         <path d="M16 10a4 4 0 0 1-8 0"/>
       </symbol>
 
-      <!-- LOCATION PIN -->
       <symbol id="icon-pin" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/>
         <circle cx="12" cy="9" r="2.5"/>
       </symbol>
 
-      <!-- CLOCK -->
       <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="9"/>
         <polyline points="12,7 12,12 15.5,14"/>
       </symbol>
 
-      <!-- CAR -->
       <symbol id="icon-car" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M5 11l1.5-4.5h11L19 11"/>
         <rect x="3" y="11" width="18" height="7" rx="2"/>
@@ -354,51 +314,43 @@
         <circle cx="16.5" cy="18" r="1.5" fill="#1e2729"/>
       </symbol>
 
-      <!-- MUSIC NOTES -->
       <symbol id="icon-music" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M9 18V5l12-2v13"/>
         <circle cx="6" cy="18" r="3"/>
         <circle cx="18" cy="16" r="3"/>
       </symbol>
 
-      <!-- PHONE -->
       <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2H7a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7A2 2 0 0 1 22 16.9z"/>
       </symbol>
 
-      <!-- GLOBE -->
       <symbol id="icon-globe" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="9"/>
         <path d="M2 12h20"/>
         <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
       </symbol>
 
-      <!-- ENVELOPE -->
       <symbol id="icon-envelope" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <rect x="2" y="4" width="20" height="16" rx="2"/>
         <polyline points="2,4 12,13 22,4"/>
       </symbol>
 
-      <!-- MAP / DIRECTIONS -->
       <symbol id="icon-map" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <polygon points="3,6 9,3 15,6 21,3 21,18 15,21 9,18 3,21"/>
         <line x1="9" y1="3" x2="9" y2="18"/>
         <line x1="15" y1="6" x2="15" y2="21"/>
       </symbol>
 
-      <!-- FACEBOOK -->
       <symbol id="icon-facebook" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
       </symbol>
 
-      <!-- INSTAGRAM -->
       <symbol id="icon-instagram" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="5"/>
         <circle cx="12" cy="12" r="4"/>
         <circle cx="17.5" cy="6.5" r="0.8" fill="#1e2729" stroke="none"/>
       </symbol>
 
-      <!-- CALENDAR -->
       <symbol id="icon-calendar" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <rect x="3" y="4" width="18" height="18" rx="2"/>
         <line x1="16" y1="2" x2="16" y2="6"/>
@@ -406,20 +358,17 @@
         <line x1="3" y1="10" x2="21" y2="10"/>
       </symbol>
 
-      <!-- COMPASS -->
       <symbol id="icon-compass" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="9"/>
         <polygon points="16.24,7.76 14.12,14.12 7.76,16.24 9.88,9.88" fill="#1e2729" stroke="none"/>
       </symbol>
 
-      <!-- TREE -->
       <symbol id="icon-tree" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 2l5 8H7l5-8z"/>
         <path d="M12 10l5.5 8H6.5l5.5-8z"/>
         <line x1="12" y1="18" x2="12" y2="22"/>
       </symbol>
 
-      <!-- GIFT -->
       <symbol id="icon-gift" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <rect x="3" y="8" width="18" height="4" rx="1"/>
         <rect x="4" y="12" width="16" height="9" rx="1"/>
@@ -428,39 +377,33 @@
         <path d="M12 8C12 8 15 5 15 3.5a3 3 0 0 0-3 2.5z"/>
       </symbol>
 
-      <!-- WARNING -->
       <symbol id="icon-warning" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M10.3 3.3L2 20h20L13.7 3.3a2 2 0 0 0-3.4 0z"/>
         <line x1="12" y1="10" x2="12" y2="14"/>
         <circle cx="12" cy="17" r="0.5" fill="#1e2729"/>
       </symbol>
 
-      <!-- PEN / STORY -->
       <symbol id="icon-pen" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
       </symbol>
 
-      <!-- LEAF / SEASON -->
       <symbol id="icon-leaf" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M11 20A7 7 0 0 1 4 13C4 9 7 5 11 3c0 4 3 7 7 8a7 7 0 0 1-7 9z"/>
         <path d="M11 20L8 13"/>
       </symbol>
 
-      <!-- SEEDLING / PLANT -->
       <symbol id="icon-plant" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 22V12"/>
         <path d="M12 12C12 12 7 10 7 5a5 5 0 0 1 5 5z"/>
         <path d="M12 12C12 12 17 10 17 5a5 5 0 0 0-5 5z"/>
       </symbol>
 
-      <!-- PHOTO / IMAGE -->
       <symbol id="icon-image" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <rect x="3" y="3" width="18" height="18" rx="2"/>
         <circle cx="8.5" cy="8.5" r="1.5"/>
         <polyline points="21,15 16,10 5,21"/>
       </symbol>
 
-      <!-- CALENDAR X (closed) -->
       <symbol id="icon-calendar-x" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <rect x="3" y="4" width="18" height="18" rx="2"/>
         <line x1="16" y1="2" x2="16" y2="6"/>
@@ -470,7 +413,6 @@
         <line x1="15" y1="15" x2="9" y2="21"/>
       </symbol>
 
-      <!-- REPEAT / RECURRING -->
       <symbol id="icon-repeat" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="17,1 21,5 17,9"/>
         <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
@@ -478,20 +420,17 @@
         <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
       </symbol>
 
-      <!-- LINK OUT -->
       <symbol id="icon-link" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
         <polyline points="15,3 21,3 21,9"/>
         <line x1="10" y1="14" x2="21" y2="3"/>
       </symbol>
 
-      <!-- SIGNATURE / ATTRIBUTION -->
       <symbol id="icon-signature" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M3 17c3-2 5-5 7-9s4-6 6-3-2 8-1 10 4-2 6-4"/>
         <line x1="3" y1="21" x2="21" y2="21"/>
       </symbol>
 
-      <!-- HIKING / WALK -->
       <symbol id="icon-hike" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="13" cy="4" r="2"/>
         <path d="M10 7l-3 5h4l-2 6 5-3"/>
@@ -499,7 +438,6 @@
         <path d="M9 12l-2 7"/>
       </symbol>
 
-      <!-- HOUSE / LAKE HOUSE -->
       <symbol id="icon-house" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M3 10.5L12 3l9 7.5"/>
         <rect x="6" y="12" width="12" height="9" rx="1"/>
@@ -507,12 +445,17 @@
         <path d="M3 20c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0" stroke-width="1.2" opacity="0.5"/>
       </symbol>
 
-      <!-- CLIPBOARD -->
       <symbol id="icon-clipboard" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <rect x="5" y="4" width="14" height="17" rx="2"/>
         <path d="M9 4a2 2 0 0 1 4 0"/>
         <line x1="9" y1="10" x2="15" y2="10"/>
         <line x1="9" y1="14" x2="13" y2="14"/>
+      </symbol>
+
+      <symbol id="icon-trivia" viewBox="0 0 24 24" fill="none" stroke="#1e2729" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2.5 2-2.5 3.5"/>
+        <circle cx="12" cy="16.5" r="0.5" fill="#1e2729"/>
       </symbol>
 
     </defs>
@@ -549,7 +492,7 @@
       </div>
       <div class="quick-item">
         <span class="ses-icon ses-icon-sm"><svg><use href="#icon-clock"/></svg></span>
-        Open Wed–Sun
+        Open Daily 12 PM
       </div>
       <div class="quick-item">
         <span class="ses-icon ses-icon-sm"><svg><use href="#icon-car"/></svg></span>
@@ -622,7 +565,7 @@
           <div class="highlight-card">
             <span class="ses-icon ses-icon-md"><svg><use href="#icon-music"/></svg></span>
             <h4>Live Music Weekly</h4>
-            <p>"Friendsday Wednesday" series, Friday shows, and a summer Monday open mic night.</p>
+            <p>Friendsday Wednesday, Trivia Thursday, and rotating live music every Friday and Saturday all summer.</p>
           </div>
           <div class="highlight-card">
             <span class="ses-icon ses-icon-md"><svg><use href="#icon-restaurant"/></svg></span>
@@ -686,8 +629,10 @@
         <p class="section-label">Plan Your Visit</p>
         <h2 class="section-title">Tips for Visitors</h2>
         <ul class="tips-list">
-          <li><span class="ses-icon ses-icon-sm"><svg><use href="#icon-calendar-x"/></svg></span>Closed Monday and Tuesday — plan your visit Wednesday through Sunday.</li>
+          <li><span class="ses-icon ses-icon-sm"><svg><use href="#icon-clock"/></svg></span>Open daily at noon — Sun through Tues until 8 PM, Wed through Sat until 9 PM.</li>
           <li><span class="ses-icon ses-icon-sm"><svg><use href="#icon-music"/></svg></span>Wednesday is "Friendsday" — live music 6–8 PM, a great mid-week outing.</li>
+          <li><span class="ses-icon ses-icon-sm"><svg><use href="#icon-trivia"/></svg></span>Thursday is Trivia Night with Doc Robinson, 6–8 PM — come early to grab a table.</li>
+          <li><span class="ses-icon ses-icon-sm"><svg><use href="#icon-music"/></svg></span>Friday and Saturday nights bring rotating live music all summer long — check Instagram for the weekly lineup.</li>
           <li><span class="ses-icon ses-icon-sm"><svg><use href="#icon-phone"/></svg></span>Babe's Burgers has its own line (607-546-2010) — call ahead or order online on busy weekends.</li>
           <li><span class="ses-icon ses-icon-sm"><svg><use href="#icon-dog"/></svg></span>Dogs and kids welcome on the outdoor patio and lawn. Bring a blanket for warm evenings.</li>
           <li><span class="ses-icon ses-icon-sm"><svg><use href="#icon-gift"/></svg></span>Gift cards available but cannot be used for Babe's Burgers — they're a separate business.</li>
@@ -732,18 +677,14 @@
 
           <span class="hours-sub-head">Taproom Hours</span>
           <table class="hours-table">
-            <tr><td>Mon – Tue</td><td><span class="closed">Closed</span></td></tr>
-            <tr><td>Wed – Thu</td><td>2:00 – 8:00 PM</td></tr>
-            <tr><td>Fri – Sat</td><td>12:00 – 9:00 PM</td></tr>
-            <tr><td>Sunday</td><td>12:00 – 6:00 PM</td></tr>
+            <tr><td>Sun – Tue</td><td>12:00 – 8:00 PM</td></tr>
+            <tr><td>Wed – Sat</td><td>12:00 – 9:00 PM</td></tr>
           </table>
 
           <span class="hours-sub-head">Babe's Burgers Hours</span>
           <table class="hours-table">
-            <tr><td>Mon – Tue</td><td><span class="closed">Closed</span></td></tr>
-            <tr><td>Wed – Thu</td><td>12:00 – 8:00 PM</td></tr>
-            <tr><td>Fri – Sat</td><td>12:00 – 8:00 PM</td></tr>
-            <tr><td>Sunday</td><td>12:00 – 7:00 PM</td></tr>
+            <tr><td>Sun – Tue</td><td>12:00 – 7:00 PM</td></tr>
+            <tr><td>Wed – Sat</td><td>12:00 – 8:00 PM</td></tr>
           </table>
 
           <a class="cta-btn" href="https://maps.app.goo.gl/ahzX7fB6ghS25x9m9" target="_blank" rel="noopener">
@@ -819,6 +760,18 @@
         <div class="event-card">
           <p class="event-date">
             <span class="ses-icon" style="width:18px;height:18px;"><svg style="width:10px;height:10px;"><use href="#icon-calendar"/></svg></span>
+            Every Monday (Summer) · 6 PM
+          </p>
+          <h4>Summer Open Mic Night</h4>
+          <p>Hosted by Mark Maynard. All skill levels welcome — instruments provided if needed.</p>
+          <span class="event-recurring">
+            <span class="ses-icon" style="width:14px;height:14px;"><svg style="width:8px;height:8px;"><use href="#icon-repeat"/></svg></span>
+            Weekly (Summer)
+          </span>
+        </div>
+        <div class="event-card">
+          <p class="event-date">
+            <span class="ses-icon" style="width:18px;height:18px;"><svg style="width:10px;height:10px;"><use href="#icon-calendar"/></svg></span>
             Every Wednesday · 6–8 PM
           </p>
           <h4>Friendsday Wednesday</h4>
@@ -831,30 +784,26 @@
         <div class="event-card">
           <p class="event-date">
             <span class="ses-icon" style="width:18px;height:18px;"><svg style="width:10px;height:10px;"><use href="#icon-calendar"/></svg></span>
-            Every Monday (Summer) · 6–8 PM
+            Every Thursday · 6–8 PM
           </p>
-          <h4>Summer Open Mic Night</h4>
-          <p>Hosted by Mark Maynard. All skill levels welcome — instruments provided if needed.</p>
+          <h4>Trivia Night w/ Doc Robinson</h4>
+          <p>Weekly trivia night hosted by Doc Robinson — gather your team and grab a table early.</p>
           <span class="event-recurring">
             <span class="ses-icon" style="width:14px;height:14px;"><svg style="width:8px;height:8px;"><use href="#icon-repeat"/></svg></span>
-            Weekly (Summer)
+            Weekly
           </span>
         </div>
         <div class="event-card">
           <p class="event-date">
             <span class="ses-icon" style="width:18px;height:18px;"><svg style="width:10px;height:10px;"><use href="#icon-calendar"/></svg></span>
-            Jun 12 · 5–8 PM
+            Fridays &amp; Saturdays · Summer
           </p>
-          <h4>Live Music w/ the Sweats</h4>
-          <p>Friday night live music to kick off the weekend right.</p>
-        </div>
-        <div class="event-card">
-          <p class="event-date">
-            <span class="ses-icon" style="width:18px;height:18px;"><svg style="width:10px;height:10px;"><use href="#icon-calendar"/></svg></span>
-            Jun 26 · 6–9 PM
-          </p>
-          <h4>Jasmin Cain Acoustic</h4>
-          <p>Extended evening set — one of the most anticipated shows of the summer.</p>
+          <h4>Rotating Live Music</h4>
+          <p>A rotating lineup of local and regional artists every Friday and Saturday throughout the summer. Check Instagram for the weekly schedule.</p>
+          <span class="event-recurring">
+            <span class="ses-icon" style="width:14px;height:14px;"><svg style="width:8px;height:8px;"><use href="#icon-repeat"/></svg></span>
+            Weekly (Summer)
+          </span>
         </div>
         <div class="event-card">
           <p class="event-date">
@@ -894,7 +843,7 @@
       <strong>Lucky Hare Brewing Company</strong> &nbsp;·&nbsp;
       6085 Beckhorn Rd, Hector, NY 14841 &nbsp;·&nbsp;
       <a href="tel:+16075462036">(607) 546-2036</a> &nbsp;·&nbsp;
-      Part of <a href="#">South East Seneca</a>
+      Part of <a href="https://southeastseneca.com">South East Seneca</a>
     </p>
     <p style="margin-top:0.4rem;">© 2026 South East Seneca Lake Tourism. All rights reserved.</p>
   </footer>
